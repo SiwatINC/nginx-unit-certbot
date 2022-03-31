@@ -1,4 +1,3 @@
-#!/bin/bash
 #Start Unit
 unitd --no-daemon --control unix:/var/run/control-unit.sock &
 
