@@ -15,6 +15,5 @@ curl -X PUT --data-binary @fullcert.pem --unix-socket /var/run/control-unit.sock
 #Apply SSL Partial Configuration
 curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listeners/*:443' &&
 
-#Idle Forever (IDK why tail -f /dev/null doesn't work so using infinite loop instead.)
-#If you use other base image other than minimal, tail might work.
+#Idle Forever
 tail -f /dev/null
