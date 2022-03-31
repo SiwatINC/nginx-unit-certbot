@@ -7,8 +7,10 @@ curl -X PUT --data-binary @/software/unit.json --unix-socket /var/run/control-un
 #Request Certificate
 certbot certonly --test-cert --webroot --agree-tos -m $EMAIL -n -w /ssl/certbotroot -d $DOMAIN_NAME &&
 
-#Upload Certificate to NGINX Unit
-curl -X PUT --data-binary @/etc/letsencrypt/live/$DOMAIN_NAME/fullchain.pem --unix-socket /var/run/control-unit.sock http://localhost/certificates/primary
+#Construct and Upload Certificate to NGINX Unit
+cat /etc/letsencrypt/live/$DOMAIN_NAME/fullchain.pem > fullcert.pem
+cat /etc/letsencrype/live/$DOMAIN_NAME/privkey.pem >> fullcert.pem
+curl -X PUT --data-binary @fullcert.pem --unix-socket /var/run/control-unit.sock http://localhost/certificates/primary
 
 #Apply SSL Partial Configuration
 curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listener/%2A%3A443' &&
