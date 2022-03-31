@@ -4,7 +4,8 @@
             "pass": "routes"
         }
     },
-    "routes": [{
+    "routes": [
+        {
         "match": {
             "uri": "/.well-known/acme-challenge*"
         },
@@ -17,23 +18,9 @@
             "uri": "*"
         },
         "action": {
-            "pass":"applications/eatmi-server"
+            "share":"/software"
         }
     }
-    ],
-    "applications": {
-        "eatmi-server": {
-            "type": "external",
-            "working_directory" : "/software",
-            "executable" : "/usr/bin/env",
-            "arguments": [
-                "node",
-                "--loader",
-                "unit-http/loader.mjs",
-                "--require",
-                "unit-http/loader",
-                "dist/index.js"
-            ]
-        }
+    ]
     }
 }
