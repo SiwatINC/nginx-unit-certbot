@@ -1,0 +1,39 @@
+{
+    "listeners": {
+        "*:80": {
+            "pass": "routes"
+        }
+    },
+    "routes": [{
+        "match": {
+            "uri": "/.well-known/acme-challenge*"
+        },
+        "action": {
+            "share": "/ssl/certbotroot$uri"
+        }
+    },
+    {
+        "match": {
+            "uri": "*"
+        },
+        "action": {
+            "pass":"applications/eatmi-server"
+        }
+    }
+    ],
+    "applications": {
+        "eatmi-server": {
+            "type": "external",
+            "working_directory" : "/software",
+            "executable" : "/usr/bin/env",
+            "arguments": [
+                "node",
+                "--loader",
+                "unit-http/loader.mjs",
+                "--require",
+                "unit-http/loader",
+                "dist/index.js"
+            ]
+        }
+    }
+}

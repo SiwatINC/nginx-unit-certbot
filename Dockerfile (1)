@@ -1,0 +1,12 @@
+FROM nginx/unit:1.26.1-node16
+ADD ./ /software
+RUN apt update -y && apt install -y certbot
+RUN mkdir -p /ssl/certbotroot
+RUN npm install -g --unsafe-perm unit-http
+WORKDIR /software
+RUN npm install express --save
+RUN npm install unit-http
+RUN npm link unit-http
+RUN chmod +x /software/entrypoint.sh
+RUN npm install
+CMD /software/entrypoint.sh
