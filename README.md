@@ -1,4 +1,5 @@
 # nginx-unit-certbot
+[![Build Status](https://ci.siwatsystem.com/buildStatus/icon?job=nginx-unit-certbot)](https://ci.siwatsystem.com/job/nginx-unit-certbot/)
 Basic Example of using certbot with NGINX Unit with Static File Backend
 
 ### Environment Variable
