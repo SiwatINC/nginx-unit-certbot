@@ -1,5 +1,5 @@
 # nginx-unit-certbot
-## Basic Example of using certbot with NGINX Unit with Static File Backend
+Basic Example of using certbot with NGINX Unit with Static File Backend
 
 ### Environment Variable
 **DOMAIN_NAME** - Domain Name for SSL/TLS<br/>
