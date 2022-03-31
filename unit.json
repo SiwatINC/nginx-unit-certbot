@@ -4,7 +4,7 @@
 			"pass": "routes"
 		},
 		"*:443": {
-			"return": 500
+			"pass": "routes"
 		}
 	},
 	"routes": [{
