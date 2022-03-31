@@ -16,4 +16,4 @@ curl -X PUT --data-binary @fullcert.pem --unix-socket /var/run/control-unit.sock
 curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listener/%2A%3A443' &&
 
 #Idle Forever
-tail -f /dev/null
+tail -f '/dev/null'
