@@ -18,3 +18,4 @@ curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/co
 #Idle Forever (IDK why tail -f /dev/null doesn't work so using infinite loop instead.)
 #If you use other base image other than minimal, tail might work.
 while :; do; sleep 1; done
+tail -f /dev/null
