@@ -1,28 +1,27 @@
 {
-    "listeners": {
-        "*:80": {
-            "pass": "routes"
-        }
-        "*:443": {
-            "return": 500
-        }
-    },
-    "routes": [
-        {
-        "match": {
-            "uri": "/.well-known/acme-challenge*"
-        },
-        "action": {
-            "share": "/ssl/certbotroot$uri"
-        }
-    },
-    {
-        "match": {
-            "uri": "*"
-        },
-        "action": {
-            "share":"/software"
-        }
-    }
-    ]
+	"listeners": {
+		"*:80": {
+			"pass": "routes"
+		},
+		"*:443": {
+			"return": 500
+		}
+	},
+	"routes": [{
+			"match": {
+				"uri": "/.well-known/acme-challenge*"
+			},
+			"action": {
+				"share": "/ssl/certbotroot$uri"
+			}
+		},
+		{
+			"match": {
+				"uri": "*"
+			},
+			"action": {
+				"share": "/software"
+			}
+		}
+	]
 }
