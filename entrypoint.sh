@@ -11,7 +11,7 @@ certbot certonly --test-cert --webroot --agree-tos -m $EMAIL -n -w /ssl/certbotr
 curl -X PUT --data-binary @/etc/letsencrypt/live/$DOMAIN_NAME/fullchain.pem --unix-socket /var/run/control-unit.sock http://localhost/certificates/primary
 
 #Apply SSL Partial Configuration
-curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listener/*:443' &&
+curl -X PUT --data-binary @/software/ssl-listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listener/%2A%3A443' &&
 
 #Idle Forever
 tail -f /dev/null
