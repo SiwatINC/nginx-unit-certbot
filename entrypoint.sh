@@ -1,3 +1,4 @@
+#!/bin/bash
 #Start Unit
 unitd --no-daemon --control unix:/var/run/control-unit.sock &
 
@@ -13,10 +14,8 @@ cat /etc/letsencrypt/live/$DOMAIN_NAME/privkey.pem >> fullcert.pem &&
 curl -X PUT --data-binary @fullcert.pem --unix-socket /var/run/control-unit.sock http://localhost/certificates/primary &&
 
 #Apply SSL Partial Configuration
-curl -X PUT --data-binary @/software/listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listener/%2A%3A443' &&
+curl -X PUT --data-binary @/software/listener.json --unix-socket /var/run/control-unit.sock 'http://localhost/config/listeners/%2A%3A443' &&
 
 #Idle Forever (IDK why tail -f /dev/null doesn't work so using infinite loop instead.)
-while true
-do
-sleep 1
-done
+#If you use other base image other than minimal, tail might work.
+while :; do; sleep 1; done
