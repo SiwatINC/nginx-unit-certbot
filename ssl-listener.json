@@ -1,8 +1,6 @@
 {
-   "*:443":{
-      "pass":"routes",
-      "tls":{
-         "certificate":"primary"
-      }
+   "pass":"routes",
+   "tls":{
+      "certificate":"primary"
    }
 }
