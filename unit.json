@@ -17,7 +17,7 @@
 				"uri": "*"
 			},
 			"action": {
-				"share": "/software"
+				"share": "/software$uri"
 			}
 		}
 	]
