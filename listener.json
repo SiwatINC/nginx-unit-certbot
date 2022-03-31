@@ -1,6 +1,11 @@
 {
-   "pass": "routes",
-   "tls": {
-      "certificate":"primary"
+   "*:80":{
+      "pass":"routes"
+   },
+   "*:443":{
+      "pass":"routes",
+      "tls":{
+         "certificate":"primary"
+      }
    }
 }
