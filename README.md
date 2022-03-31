@@ -7,5 +7,4 @@ Basic Example of using certbot with NGINX Unit with Static File Backend
 **EMAIL** - ACME Issuer Email for Expiry Notifications<br/>
 
 ### Directory Mapping
-**/config** - Configuration Directory<br/>
 **/etc/letsencrypt/live/** - Certificate Directory<br/>
